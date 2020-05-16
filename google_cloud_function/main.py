@@ -17,7 +17,6 @@ def optionroulette(request):
 	else:
 		return f"No ticker symbol supplied."
 
-	print(stonk)
 	ticker = yfinance.Ticker(stonk)
 
 	# Grab available dates for our ticker, choose one at random.
@@ -52,9 +51,8 @@ def optionroulette(request):
 	contractString = f"{stonk} {contract['strike']}{contractType} {expiry}"
 	executionTime = time.time() - start_time
 
-	print(f"DEBUG: contractString = {contractString}")
-
 	# Return a JSON object.
+        print(f"SUCCESS: {contractString}")
 	optionDump = {'contractString':contractString,
 		'executionTime':executionTime}
 	return json.dumps(optionDump)
