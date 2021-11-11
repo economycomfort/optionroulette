@@ -1,5 +1,9 @@
 #!/usr/bin/env python
 #
+# Queries yFinance for option contract data, returns random ticker and strike.
+#
+# David Brooks <dabrooks@pm.me> - 20200418
+#
 import json
 import sys
 import time
@@ -20,11 +24,13 @@ ticker = yf.Ticker(stonk)
 
 # Grab available option expiry dates for ticker
 try:
-    dates = ticker.options      # Grab the exp dates
+    # Grab the exp dates
+    dates = ticker.options      
     if len(dates) == 0:
         print(f"Ticker {stonk} doesn't appear to have an option chain.")
         exit(1)
-    expiry = dates[random.randint(0,len(dates)-1)]    # Choose one at random
+    # Choose one at random
+    expiry = dates[random.randint(0,len(dates)-1)]    
 # An IndexError may appear if a stock doesn't have an options chain, or is a
 # bogus ticker.
 except IndexError:
