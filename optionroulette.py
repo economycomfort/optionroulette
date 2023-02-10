@@ -1,8 +1,8 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 #
 # Queries yFinance for option contract data, returns random ticker and strike.
 #
-# David Brooks <dabrooks@pm.me> - 20200418
+# David Brooks: github.com/economycomfort
 #
 import json
 import sys
